@@ -1,5 +1,6 @@
 package com.oracle.oBootMybatis03.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.activation.DataSource;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.oracle.oBootMybatis03.model.Dept;
+import com.oracle.oBootMybatis03.model.DeptVO;
 import com.oracle.oBootMybatis03.model.Emp;
 import com.oracle.oBootMybatis03.model.EmpDept;
 import com.oracle.oBootMybatis03.service.EmpService;
@@ -158,5 +160,48 @@ public class EmpController {
 		}
 		return "mailResult";
 		
+	}
+	
+	// Procedure Test 입력화면
+	@RequestMapping(value = "writeDeptIn", method = RequestMethod.GET)
+	public String writeDeptIn(Model model) {
+		System.out.println("writeDeptIn Start...");
+	return "writeDept3";
+	}
+	
+	@PostMapping(value = "writeDept")
+	// Procedure Test 입력후 VO 전달
+	public String writeDept(DeptVO deptVO, Model model) {
+	// DeptVO rDeptVO = es.insertDept(deptVO);	// 일반 Service
+		es.insertDept(deptVO);		// Procedure Call
+		if (deptVO == null) {
+			System.out.println("deptVO NULL");
+		} else {
+			System.out.println("RdeptVO.getOdeptno()->"+deptVO.getOdeptno());
+			System.out.println("RdeptVO.getOdname()->"+deptVO.getOdname());
+			System.out.println("RdeptVO.getOloc()->"+deptVO.getOloc());
+			model.addAttribute("msg", "정상 입력 되었습니다 ^^");
+			model.addAttribute("dept", deptVO);
+		}
+		return "writeDept3";
+	}
+	
+
+	@GetMapping(value = "writeDeptCursor")
+	public String writeDeptCursor(Model model) {
+		System.out.println("EmpController writeDeptCursor Start...");
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("sDeptno", 10);
+		map.put("eDeptno", 80);
+		es.selListDept(map);
+		java.util.List<Dept> deptLists = (List<Dept>) map.get("dept");
+		for(Dept dept : deptLists) {
+			System.out.println("deptList.dname[0].getDname->"+dept.getDname());
+			System.out.println("deptList.dname[0].getLoc->"+dept.getLoc());			
+		}
+		System.out.println("deptList Size->"+deptLists.size());
+		model.addAttribute("deptList", deptLists);
+		
+	return "writeDeptCursor";
 	}
 }

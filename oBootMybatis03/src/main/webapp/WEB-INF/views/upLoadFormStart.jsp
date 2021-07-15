@@ -20,9 +20,9 @@ iframe {
  --%>	
    <form id="form1" action="uploadForm" method="post" enctype="multipart/form-data" target="myBatisFrame">
 		<input type="file" name="file1"> 
-		<input type="text" name="title"> 
+		<input type="text" name="title"> <p>
 	    <input type="hidden" name="path" value="${pageContext.request.contextPath}/resources/image/"> 
-		<input type="submit">
+		<input type="submit"><p>
 	</form>
 	<a href="uploadFileDelete">upLoad삭제Test</a>
 

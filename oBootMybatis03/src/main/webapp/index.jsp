@@ -11,7 +11,11 @@
 
 // 	response.sendRedirect("list");
 // 	response.sendRedirect("listEmpDept");
-	response.sendRedirect("upLoadFormStart");	// UpLoad Test
+// 	response.sendRedirect("upLoadFormStart");	// UpLoad Test
+// 	response.sendRedirect("writeDeptIn");		// Procedure VO    Test
+// 	response.sendRedirect("writeDeptCursor");	// Procedure cursor Test
+// 	response.sendRedirect("memberJpa/new");			// JPA
+	response.sendRedirect("members");
 %>
 
 </body>

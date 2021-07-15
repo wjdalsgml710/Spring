@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.oracle.board.command.BCommand;
 import com.oracle.board.command.BContentCommand;
+import com.oracle.board.command.BDeleteCommand;
 import com.oracle.board.command.BListCommand;
 import com.oracle.board.command.BModifyCommand;
+import com.oracle.board.command.BReplyCommand;
 import com.oracle.board.command.BReplyViewCommand;
 import com.oracle.board.command.BWriteCommand;
 
@@ -76,5 +78,27 @@ public class BController {
 		command.execute(model);
 		
 		return "reply_view";
+	}
+	
+	@RequestMapping(value="/reply", method=RequestMethod.POST)
+	   public String reply(HttpServletRequest request, Model model) {
+	      System.out.println("reply()");
+	      
+	      model.addAttribute("request", request);
+	      command = new BReplyCommand();
+	      command.execute(model);
+	      
+	      return "redirect:list";
+	   }
+	
+	@RequestMapping("/delete")
+		public String delete(HttpServletRequest request, Model model) {
+			System.out.println("delete()");
+			
+			model.addAttribute("request", request);
+			command = new BDeleteCommand();
+			command.execute(model);
+			
+			return "redirect:list";
 	}
 }

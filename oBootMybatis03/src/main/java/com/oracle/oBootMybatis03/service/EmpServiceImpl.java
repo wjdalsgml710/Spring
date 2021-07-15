@@ -1,6 +1,7 @@
 package com.oracle.oBootMybatis03.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,10 +9,11 @@ import org.springframework.stereotype.Service;
 import com.oracle.oBootMybatis03.dao.DeptDao;
 import com.oracle.oBootMybatis03.dao.EmpDao;
 import com.oracle.oBootMybatis03.model.Dept;
+import com.oracle.oBootMybatis03.model.DeptVO;
 import com.oracle.oBootMybatis03.model.Emp;
 import com.oracle.oBootMybatis03.model.EmpDept;
 
-@Service
+@Service // bean 생성 안해줘도 된다. 컴포넌트 등록시켜줌!
 public class EmpServiceImpl implements EmpService {
 	@Autowired
 	private EmpDao ed;
@@ -94,6 +96,20 @@ public class EmpServiceImpl implements EmpService {
 		empDeptList = ed.listEmpDept(); // 관리자만 Get
 		System.out.println("DeptDaoImpl listEmpDept empDeptList.size()->" + empDeptList.size());
 		return empDeptList;
+	}
+
+	@Override
+	public void insertDept(DeptVO deptVO) {
+		System.out.println("EmpServiceImpl insertDept Start...");
+		dd.insertDept(deptVO);
+		
+	}
+
+	@Override
+	public void selListDept(Map<String, Object> map) {
+		System.out.println("EmpServiceImpl selListDept Start...");
+		dd.selListDept(map);
+		
 	}
 
 }
