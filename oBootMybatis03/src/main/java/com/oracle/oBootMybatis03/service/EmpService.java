@@ -21,6 +21,9 @@ public interface EmpService {
 		List<EmpDept> 	listEmpDept();
 		void			insertDept(DeptVO deptVO);
 		void			selListDept(Map<String,Object> map);
+<<<<<<< HEAD
 		int				memCount(String id);
 		List<Member1>   listMem(Member1 member1);
+=======
+>>>>>>> 475da6ea5edf476fa5fcbb262e4fd190955cb70b
 }

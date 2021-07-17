@@ -1,7 +1,10 @@
 package com.oracle.oBootMybatis03.controller;
 
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Optional;
+=======
+>>>>>>> 475da6ea5edf476fa5fcbb262e4fd190955cb70b
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,6 +47,7 @@ public class MemberJpaController {
 		return "memberJpa/memberList";
 	}
 	
+<<<<<<< HEAD
 	@GetMapping(value="/memberJpa/memberUpdateForm")
 	   public String memberUpdateForm(Long id, Model model) {
 	      Member member = null;
@@ -69,5 +73,7 @@ public class MemberJpaController {
 		memberJpaService.memberUpdate(member);
 		return "redirect:/members";
 	}	
+=======
+>>>>>>> 475da6ea5edf476fa5fcbb262e4fd190955cb70b
 
 }

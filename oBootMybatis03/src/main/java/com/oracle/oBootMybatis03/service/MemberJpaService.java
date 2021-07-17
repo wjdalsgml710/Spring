@@ -1,7 +1,10 @@
 package com.oracle.oBootMybatis03.service;
 
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Optional;
+=======
+>>>>>>> 475da6ea5edf476fa5fcbb262e4fd190955cb70b
 
 import javax.persistence.EntityManager;
 
@@ -32,6 +35,7 @@ public class MemberJpaService {
 		return listMember;
 	}
 	
+<<<<<<< HEAD
 	//회원 상세 조회
 	   public Optional<Member> findById(Long memberId){
 	      Optional<Member> member = memberJpaRepository.findById(memberId);
@@ -45,5 +49,7 @@ public class MemberJpaService {
 		   memberJpaRepository.updateByMember(member);
 		   return;
 	   }
+=======
+>>>>>>> 475da6ea5edf476fa5fcbb262e4fd190955cb70b
 
 }

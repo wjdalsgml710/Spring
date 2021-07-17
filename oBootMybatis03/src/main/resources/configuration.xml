@@ -6,6 +6,9 @@
 		<typeAlias alias="Dept" type="com.oracle.oBootMybatis03.model.Dept" />
 		<typeAlias alias="EmpDept" type="com.oracle.oBootMybatis03.model.EmpDept" />
 		<typeAlias alias="DeptVO" type="com.oracle.oBootMybatis03.model.DeptVO" />
+<<<<<<< HEAD
 		<typeAlias alias="Member1" type="com.oracle.oBootMybatis03.model.Member1"/>
+=======
+>>>>>>> 475da6ea5edf476fa5fcbb262e4fd190955cb70b
 	</typeAliases>	
 </configuration>

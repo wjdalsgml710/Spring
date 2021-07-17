@@ -14,9 +14,14 @@
 // 	response.sendRedirect("upLoadFormStart");	// UpLoad Test
 // 	response.sendRedirect("writeDeptIn");		// Procedure VO    Test
 // 	response.sendRedirect("writeDeptCursor");	// Procedure cursor Test
+<<<<<<< HEAD
 //  response.sendRedirect("memberJpa/new");			// JPA
 //   response.sendRedirect("members");
 response.sendRedirect("interCepterForm"); 	// interCepter 시작
+=======
+// 	response.sendRedirect("memberJpa/new");			// JPA
+	response.sendRedirect("members");
+>>>>>>> 475da6ea5edf476fa5fcbb262e4fd190955cb70b
 %>
 
 </body>

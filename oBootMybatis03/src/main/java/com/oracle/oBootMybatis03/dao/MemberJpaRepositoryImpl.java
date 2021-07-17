@@ -1,7 +1,10 @@
 package com.oracle.oBootMybatis03.dao;
 
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Optional;
+=======
+>>>>>>> 475da6ea5edf476fa5fcbb262e4fd190955cb70b
 
 import javax.persistence.EntityManager;
 
@@ -27,6 +30,7 @@ public class MemberJpaRepositoryImpl implements MemberJpaRepository {
 		return memberList;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public Optional<Member> findById(Long id) {
 		Member member = em.find(Member.class, id);
@@ -40,4 +44,6 @@ public class MemberJpaRepositoryImpl implements MemberJpaRepository {
 		return;
 	}
 
+=======
+>>>>>>> 475da6ea5edf476fa5fcbb262e4fd190955cb70b
 }

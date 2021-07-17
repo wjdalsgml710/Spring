@@ -116,6 +116,7 @@ public class EmpServiceImpl implements EmpService {
 		
 	}
 
+<<<<<<< HEAD
 	@Override
 	public int memCount(String id) {
 		System.out.println("EmpServiceImpl memCount id ->"+id);
@@ -128,4 +129,6 @@ public class EmpServiceImpl implements EmpService {
 		return md.listMem(member1);
 	}
 
+=======
+>>>>>>> 475da6ea5edf476fa5fcbb262e4fd190955cb70b
 }

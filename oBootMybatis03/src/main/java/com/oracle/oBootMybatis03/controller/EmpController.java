@@ -205,6 +205,7 @@ public class EmpController {
 		
 	return "writeDeptCursor";
 	}
+<<<<<<< HEAD
 	
 	// interCepter 시작 화면
 	@RequestMapping(value = "interCepterForm", method = RequestMethod.GET)
@@ -252,4 +253,6 @@ public class EmpController {
 		model.addAttribute("id",ID);
 		return "doMemberWrite";
 	}
+=======
+>>>>>>> 475da6ea5edf476fa5fcbb262e4fd190955cb70b
 }
