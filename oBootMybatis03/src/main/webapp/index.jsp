@@ -11,7 +11,12 @@
 
 // 	response.sendRedirect("list");
 // 	response.sendRedirect("listEmpDept");
-	response.sendRedirect("upLoadFormStart");	// UpLoad Test
+// 	response.sendRedirect("upLoadFormStart");	// UpLoad Test
+// 	response.sendRedirect("writeDeptIn");		// Procedure VO    Test
+// 	response.sendRedirect("writeDeptCursor");	// Procedure cursor Test
+//  response.sendRedirect("memberJpa/new");			// JPA
+//   response.sendRedirect("members");
+response.sendRedirect("interCepterForm"); 	// interCepter 시작
 %>
 
 </body>

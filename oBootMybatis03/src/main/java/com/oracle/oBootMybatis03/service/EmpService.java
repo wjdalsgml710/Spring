@@ -1,10 +1,13 @@
-package com.oracle.oBootMybatis03.service;
+	package com.oracle.oBootMybatis03.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.oracle.oBootMybatis03.model.Dept;
+import com.oracle.oBootMybatis03.model.DeptVO;
 import com.oracle.oBootMybatis03.model.Emp;
 import com.oracle.oBootMybatis03.model.EmpDept;
+import com.oracle.oBootMybatis03.model.Member1;
 
 public interface EmpService {
 		int				total();
@@ -16,4 +19,8 @@ public interface EmpService {
 		int				insert(Emp emp);
 		int				delete(int empno);
 		List<EmpDept> 	listEmpDept();
+		void			insertDept(DeptVO deptVO);
+		void			selListDept(Map<String,Object> map);
+		int				memCount(String id);
+		List<Member1>   listMem(Member1 member1);
 }
