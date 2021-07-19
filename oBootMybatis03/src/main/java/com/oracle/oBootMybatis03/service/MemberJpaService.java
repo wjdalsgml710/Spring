@@ -44,6 +44,6 @@ public class MemberJpaService {
 		   System.out.println("MemberJpaService memberUpdate member.getId()->"+member.getId());
 		   memberJpaRepository.updateByMember(member);
 		   return;
-	   }
 
+	   }
 }

@@ -115,7 +115,7 @@ public class EmpServiceImpl implements EmpService {
 		dd.selListDept(map);
 		
 	}
-
+	
 	@Override
 	public int memCount(String id) {
 		System.out.println("EmpServiceImpl memCount id ->"+id);
@@ -127,7 +127,7 @@ public class EmpServiceImpl implements EmpService {
 		System.out.println("EmpServiceImpl listMem Start...");
 		return md.listMem(member1);
 	}
-
+	
 	@Override
 	public String deptName(int deptno) {
 		System.out.println("EmpServiceImpl deptName Start..."); 
@@ -139,5 +139,4 @@ public class EmpServiceImpl implements EmpService {
 		System.out.println("EmpServiceImpl listEmp Start..."); 
 		return ed.listEmp(empDept);
 	}
-
 }

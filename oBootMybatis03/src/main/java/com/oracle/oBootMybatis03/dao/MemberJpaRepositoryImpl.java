@@ -39,5 +39,4 @@ public class MemberJpaRepositoryImpl implements MemberJpaRepository {
 		em.merge(member);
 		return;
 	}
-
 }

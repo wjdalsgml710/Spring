@@ -20,6 +20,11 @@
 // 	response.sendRedirect("chat");
 // 	response.sendRedirect("sendVO3");		// RestController Test (VO) helloText / hello  / sendVO3 번갈아
 	response.sendRedirect("listEmpAjax");	// Ajax --> getDeptName / listEmpAjax 번갈아
+//  response.sendRedirect("memberJpa/new");			// JPA
+//   response.sendRedirect("members");
+response.sendRedirect("interCepterForm"); 	// interCepter 시작
+// 	response.sendRedirect("memberJpa/new");			// JPA
+	response.sendRedirect("members");
 %>
 
 </body>
