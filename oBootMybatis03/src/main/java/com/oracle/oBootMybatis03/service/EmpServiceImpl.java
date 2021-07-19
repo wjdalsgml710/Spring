@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.oracle.oBootMybatis03.dao.DeptDao;
 import com.oracle.oBootMybatis03.dao.EmpDao;
+import com.oracle.oBootMybatis03.dao.Member1Dao;
 import com.oracle.oBootMybatis03.model.Dept;
 import com.oracle.oBootMybatis03.model.DeptVO;
 import com.oracle.oBootMybatis03.model.Emp;
 import com.oracle.oBootMybatis03.model.EmpDept;
+import com.oracle.oBootMybatis03.model.Member1;
 
 @Service // bean 생성 안해줘도 된다. 컴포넌트 등록시켜줌!
 public class EmpServiceImpl implements EmpService {
@@ -19,6 +21,8 @@ public class EmpServiceImpl implements EmpService {
 	private EmpDao ed;
 	@Autowired
 	private DeptDao dd;
+	@Autowired
+	private Member1Dao md;
 	
 	@Override
 	public int total() {
@@ -110,6 +114,30 @@ public class EmpServiceImpl implements EmpService {
 		System.out.println("EmpServiceImpl selListDept Start...");
 		dd.selListDept(map);
 		
+	}
+
+	@Override
+	public int memCount(String id) {
+		System.out.println("EmpServiceImpl memCount id ->"+id);
+		return md.memCount(id);
+	}
+
+	@Override
+	public List<Member1> listMem(Member1 member1) {
+		System.out.println("EmpServiceImpl listMem Start...");
+		return md.listMem(member1);
+	}
+
+	@Override
+	public String deptName(int deptno) {
+		System.out.println("EmpServiceImpl deptName Start..."); 
+		return ed.deptName(deptno);
+	}
+
+	@Override
+	public List<EmpDept> listEmp(EmpDept empDept) {
+		System.out.println("EmpServiceImpl listEmp Start..."); 
+		return ed.listEmp(empDept);
 	}
 
 }

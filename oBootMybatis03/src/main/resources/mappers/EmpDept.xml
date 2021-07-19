@@ -6,5 +6,10 @@
 	select e.empno, e.ename, e.job, d.deptno, d.loc from dept d, emp e 
 	where e.deptno=d.deptno 
 	order by empno
+	</select>	
+	
+	<select id="TKdeptName" parameterType="int" resultType="java.lang.String">
+	select dname from dept where deptno= #{deptno}	
 	</select>
+	
 </mapper>

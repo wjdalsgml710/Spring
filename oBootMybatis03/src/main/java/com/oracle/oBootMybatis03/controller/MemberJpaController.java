@@ -1,6 +1,7 @@
 package com.oracle.oBootMybatis03.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,5 +44,30 @@ public class MemberJpaController {
 		return "memberJpa/memberList";
 	}
 	
+	@GetMapping(value="/memberJpa/memberUpdateForm")
+	   public String memberUpdateForm(Long id, Model model) {
+	      Member member = null;
+	      String rtnJsp = "";
+	      Optional<Member> maybeMember =    memberJpaService.findById(id);
+	      if(maybeMember.isPresent()) {
+	         member = maybeMember.get();
+	         model.addAttribute("member", member);
+	         rtnJsp = "memberJpa/memberModify";
+	      } else {
+	    	  System.out.println("MemberController memeberUpdate id->"+member.getId());
+	    	  System.out.println("MemberController memeberUpdate member.getName->"+member.getName());
+	    	  model.addAttribute("message", "member가 존재하지 않으니, 입력부터 수행해 주세요");
+	         rtnJsp = "forward:/members";
+	      }
+	      return rtnJsp;
+	   }
+	
+	@GetMapping(value = "/memberJpa/memberUpdate")
+	public String memberUpdate(Member member, Model model) {
+		System.out.println("MemberController memberUpdate id->"+member.getId());
+		System.out.println("MemberController memberUpdate member.getName->"+member.getName());
+		memberJpaService.memberUpdate(member);
+		return "redirect:/members";
+	}	
 
 }

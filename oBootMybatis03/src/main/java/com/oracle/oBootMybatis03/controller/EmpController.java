@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oracle.oBootMybatis03.model.Dept;
 import com.oracle.oBootMybatis03.model.DeptVO;
 import com.oracle.oBootMybatis03.model.Emp;
 import com.oracle.oBootMybatis03.model.EmpDept;
+import com.oracle.oBootMybatis03.model.Member1;
 import com.oracle.oBootMybatis03.service.EmpService;
 import com.oracle.oBootMybatis03.service.Paging;
 
@@ -203,5 +205,71 @@ public class EmpController {
 		model.addAttribute("deptList", deptLists);
 		
 	return "writeDeptCursor";
+	}
+	
+	// interCepter 시작 화면
+	@RequestMapping(value = "interCepterForm", method = RequestMethod.GET)
+	public String interCepterForm(Model model) {
+		System.out.println("interCepterForm Start");
+		return "interCepterForm";
+	}
+	
+	// interCepter 진행 Test  2
+	@RequestMapping(value = "interCepter")
+	public String interCepter(String id, Model model) {
+		System.out.println("interCepter Test Start");
+		System.out.println("interCepter id->"+id);
+		int memCnt = es.memCount(id);
+		
+		System.out.println("memCnt ->"+ memCnt);
+		// List<EmpDept> listEmp = es.listEmp(empDept); User 가져오늘 Service
+		// member1의 Count가져오는 Service 수행
+		// member.serId("kkk");
+		
+		model.addAttribute("id",id);
+		model.addAttribute("memCnt",memCnt);
+		System.out.println("interCepter Test End");
+		return "interCepter"; // User 존재하면 User 이용 조회 Page
+	}
+	
+	// interCepter 진행 Test
+	@RequestMapping(value = "doMemberList")
+	public String doMemberList(Model model, HttpServletRequest request) {
+		String ID = (String) request.getSession().getAttribute("ID");
+		System.out.println("doMemberList Test Start ID ->"+ID);
+		Member1 member1 = null;
+		// Member1 List Get Service
+		List<Member1> listMem = es.listMem(member1);
+		model.addAttribute("ID",ID);
+		model.addAttribute("listMem",listMem);
+		return "doMemberList";	// User 존재하면 User 이용조회 Page		
+	}
+	
+	// SampleInterceptor 내용을 받아 처리
+	@RequestMapping(value = "doMemberWrite", method = RequestMethod.GET)
+	public String doMemberWrite(Model model, HttpServletRequest request) {
+		String ID = (String) request.getSession().getAttribute("ID");
+		System.out.println("doMemberWrite................");
+		model.addAttribute("id",ID);
+		return "doMemberWrite";
+	}
+	
+	// Ajax Test
+	@RequestMapping(value="getDeptName", produces = "application/text;charset=UTF-8")
+	@ResponseBody
+	public String getDeptName(int deptno, Model model) {
+		System.out.println("deptno->"+deptno);
+		return es.deptName(deptno);
+	}
+	
+	@RequestMapping(value = "listEmpAjax")
+	public String listEmpAjax(Model model) {
+		EmpDept empDept = null;
+		System.out.println("Ajax List Test Start");
+		List<EmpDept> listEmp = es.listEmp(empDept);
+		System.out.println("EmpController listEmpAjax listEmp.size()"+listEmp.size());
+		model.addAttribute("result","kkk");
+		model.addAttribute("listEmp", listEmp);
+		return "listEmpAjax";
 	}
 }
